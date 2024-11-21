@@ -2,8 +2,9 @@ using KoraaPlus.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace KoraaPlus.Controllers
+namespace KoraaPlus.Areas.Customer.Controllers
 {
+    [Area("Customer")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
