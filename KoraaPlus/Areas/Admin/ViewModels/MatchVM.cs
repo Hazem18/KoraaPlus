@@ -1,4 +1,5 @@
 ﻿using KoraaPlus.Models;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel.DataAnnotations;
 
 namespace KoraaPlus.Areas.Admin.ViewModels
@@ -22,5 +23,7 @@ namespace KoraaPlus.Areas.Admin.ViewModels
         [Required]
         [Display(Name = "League Name")]
         public int LeagueId { get; set; }
+        [ValidateNever]
+        public ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
     }
 }
