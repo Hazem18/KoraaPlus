@@ -13,6 +13,8 @@ namespace KoraaPlus.Areas.Admin.ViewModels
         [Required]
         [MinLength(3, ErrorMessage = "Description length must be greater than 1 letter")]
         public string Description { get; set; }
+        [ValidateNever]
+        public string LogoUrl { get; set; }
 
         [ValidateNever]
         public ICollection<Team> Teams { get; set; } = new List<Team>();

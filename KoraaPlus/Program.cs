@@ -1,4 +1,7 @@
 using KoraaPlus.Data;
+using KoraaPlus.Repository;
+using KoraaPlus.Repository.IRepository;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace KoraaPlus
@@ -16,6 +19,13 @@ namespace KoraaPlus
                 (
                     options => options.UseSqlServer(builder.Configuration.GetConnectionString("MyConnection"))
                 );
+
+            builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            builder.Services.AddScoped(typeof(ILeagueRepository) , typeof(LeagueRepository));
+            builder.Services.AddScoped(typeof(ITeamRepository), typeof(TeamRepository));
+            builder.Services.AddScoped(typeof(IMatchRepository), typeof(MatchRepository));
+            builder.Services.AddScoped(typeof(ITicketRepository), typeof(TicketRepository));
+            builder.Services.AddScoped(typeof(ITicketCategoryRepository), typeof(TicketCategoryRepository));
 
             var app = builder.Build();
 
